@@ -10,8 +10,8 @@ Works with Blender 3.6+ and the `bpy` pip package (4.x).
 import math
 import os
 
+import bpy  # must come before bmesh with the pip `bpy` package
 import bmesh
-import bpy
 from mathutils import Matrix, Vector
 
 __all__ = [
