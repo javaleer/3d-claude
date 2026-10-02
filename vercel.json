@@ -1,13 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "",
+  "buildCommand": "python3 scripts/update_manifest.py",
   "installCommand": "",
   "outputDirectory": "public",
   "headers": [
     {
       "source": "/models.json",
-      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,30 @@
+# Auto-publish: merge Claude's asset PRs as soon as they're opened or updated,
+# so new models appear on the Vercel site without a manual merge.
+name: Auto-merge asset PRs
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge:
+    if: >-
+      startsWith(github.head_ref, 'claude/') &&
+      startsWith(github.event.pull_request.title, 'asset:') &&
+      !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.html_url }}
+        run: |
+          # Merge commit (not squash) so the branch stays mergeable for follow-up edits.
+          if ! gh pr merge "$PR" --merge; then
+            gh pr comment "$PR" --body "Auto-merge failed (probably a conflict with main). Merge main into this branch, rebuild, and push again."
+            exit 1
+          fi

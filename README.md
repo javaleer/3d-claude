@@ -27,9 +27,9 @@ phone (Claude app) ──photo──▶ Claude Code cloud session on this repo
 ## Daily use
 
 - Phone → Claude app → Code → repo `3d-claude` → attach a photo → "make this, call it `oak-tree`".
-- Open the PR from Claude's reply. Vercel's bot comments with the preview link. Check the model,
-  tap materials to highlight them, and ask for changes in the same session ("trunk thicker").
-- Merge the PR to publish it to the main site.
+- Claude opens a PR and a GitHub Action merges it automatically, so the model appears on
+  https://3d-claude.vercel.app a couple of minutes later. Ask for changes in the same session
+  ("trunk thicker") and the update publishes the same way.
 - To add it to the game: on the model's page, tap **Copy prompt**, start a Claude Code session on
   the game repo, and paste. Claude downloads the FBX from the public site, so you don't have to transfer files.
 

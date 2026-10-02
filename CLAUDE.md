@@ -43,15 +43,18 @@ changed because of the instructions (for example "4,800 tris since you asked for
      `view_3` top, `view_4` 3/4, `view_5` 3/4 rear) and compare them with the reference.
      Fix proportions, colors, and missing or extra parts, then rebuild. Iterate 2–4 times
      until it reads as the same object at a glance.
-6. **Publish:** commit `models/<slug>/`, `public/models/<slug>/`, and `public/models.json` with the
-   message `asset: <slug>`. Push to the session's branch (or `claude/<slug>`) and open a PR
-   titled `asset: <Name>` that includes the thumbnail path and stats. Vercel posts a preview
-   link on the PR.
+6. **Publish:** commit `models/<slug>/` and `public/models/<slug>/` with the message `asset: <slug>`.
+   Don't commit `public/models.json`; it's git-ignored and Vercel regenerates it on every deploy.
+   Push to the session's branch (or `claude/<slug>`) and open a PR titled `asset: <Name>` that
+   includes the stats. A GitHub Action **auto-merges** `asset:` PRs from `claude/` branches, so
+   the model goes live on https://3d-claude.vercel.app/#<slug> within a couple of minutes.
 7. **Reply briefly** with the triangle count, the material list (name + hex), the size in meters,
-   and the PR link. Note that the Vercel preview link appears on the PR within a minute or two.
+   the PR link, and the live link `https://3d-claude.vercel.app/#<slug>`.
 
-For **edits** ("make the roof red", "fewer polys"), change `models/<slug>/build.py`, rebuild
-with `--check`, and push to the same branch/PR.
+For **edits** ("make the roof red", "fewer polys"), change `models/<slug>/build.py` and rebuild
+with `--check`. The first PR has usually already been auto-merged, so first `git pull origin main`
+into the branch, then push and open a new PR titled `asset: <Name> (update)`; it auto-merges too.
+If the auto-merge Action comments that it failed, merge `main` into the branch, rebuild, and push again.
 
 ## Modeling rules (defaults, overridden by anything the user says)
 
@@ -117,7 +120,7 @@ All `loc` values are object centers, `rot` is in degrees, and sizes are full ext
 - `scripts/build.sh` → `scripts/build_model.py` runs `build()`, then `finalize` (apply transforms,
   join, merge duplicate verts, fix normals, pivot at bottom-center, dedupe materials) → exports
   `public/models/<slug>/<slug>.fbx` (Unity) and `.glb` (web viewer), `thumb.png`, and `meta.json`
-  → rebuilds `public/models.json`.
+  → rebuilds `public/models.json` locally (git-ignored; Vercel's build runs `scripts/update_manifest.py`).
 - `public/` is the static gallery site (no build step; Vercel serves it as-is). Don't hand-edit
   `models.json` or `meta.json`; they're generated.
 - `.check/` and `.venv/` are git-ignored.
