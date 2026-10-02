@@ -66,6 +66,8 @@ model-viewer {
   --poster-color: transparent;
 }
 .floating { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); }
+.corner { position: absolute; right: 10px; top: 14px; }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 
 h1 { margin: 0 0 4px; font-size: 24px; }
 h2 { margin: 22px 0 8px; font-size: 15px; }
@@ -83,6 +85,8 @@ h2 { margin: 22px 0 8px; font-size: 15px; }
 .mat:hover { border-color: #4a5160; }
 .mat[aria-pressed="true"] { border-color: var(--accent); background: var(--panel-2); box-shadow: 0 0 0 1px var(--accent) inset; }
 .swatch { width: 22px; height: 22px; border-radius: 6px; border: 1px solid rgba(255,255,255,.15); flex: none; }
+.swatch.id { display: none; border-radius: 50%; width: 14px; height: 14px; margin-left: -4px; }
+.show-id .swatch.id { display: block; }
 .mat .mname { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .mat .mhex, .mat .mtris { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 

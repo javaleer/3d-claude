@@ -22,7 +22,8 @@
       <div class="viewer-wrap">
         <model-viewer id="viewer" camera-controls touch-action="pan-y" shadow-intensity="0.6"
           exposure="1.05" environment-image="neutral" interaction-prompt="none"></model-viewer>
-        <button id="clearSel" class="chip floating" hidden>Show all materials</button>
+        <button id="idMode" class="chip corner" aria-pressed="false">Material colors</button>
+        <button id="clearSel" class="chip floating" hidden>Clear selection</button>
       </div>
       <div class="info">
         <h1 id="name"></h1>
@@ -33,7 +34,7 @@
           <div><dt>Materials</dt><dd id="matCount"></dd></div>
         </dl>
 
-        <h2>Materials <span class="muted small">tap to highlight</span></h2>
+        <h2>Materials <span class="muted small">tap one or more to highlight</span></h2>
         <ul id="materials" class="materials"></ul>
 
         <h2>Download</h2>
