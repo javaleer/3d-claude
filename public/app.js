@@ -74,7 +74,7 @@ function showModel(m) {
 
   $("prompt").textContent =
     `Add the low-poly asset "${m.slug}" from ${REPO} to the game.\n` +
-    `FBX: ${SITE}/${m.slug}/${m.files.fbx}\n` +
+    `GLB: ${SITE}/${m.slug}/${m.files.glb}\n` +
     `Materials: ${m.materials.map((x) => `${x.name} ${x.color}`).join(", ")}\n` +
     `Follow the asset import rules in CLAUDE.md.`;
 
