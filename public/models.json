@@ -1,0 +1,41 @@
+{
+  "models": [
+    {
+      "slug": "wooden-crate",
+      "name": "Wooden Crate",
+      "category": "prop",
+      "description": "Sample asset: 1 m crate with dark frame boards and iron corner caps.",
+      "created": "2026-10-02",
+      "updated": "2026-10-02",
+      "tris": 276,
+      "verts": 184,
+      "materials": [
+        {
+          "name": "Wood",
+          "color": "#c08a4e",
+          "tris": 12
+        },
+        {
+          "name": "WoodDark",
+          "color": "#7a4f2a",
+          "tris": 168
+        },
+        {
+          "name": "Iron",
+          "color": "#4a4d52",
+          "tris": 96
+        }
+      ],
+      "size_m": [
+        1.08,
+        1.08,
+        1.04
+      ],
+      "files": {
+        "fbx": "wooden-crate.fbx",
+        "glb": "wooden-crate.glb",
+        "thumb": "thumb.png"
+      }
+    }
+  ]
+}

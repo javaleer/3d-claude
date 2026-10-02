@@ -1,0 +1,7 @@
+.venv/
+.check/
+__pycache__/
+*.pyc
+*.blend1
+.DS_Store
+.vercel
