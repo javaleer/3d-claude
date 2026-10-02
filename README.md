@@ -31,7 +31,7 @@ phone (Claude app) ──photo──▶ Claude Code cloud session on this repo
   tap materials to highlight them, and ask for changes in the same session ("trunk thicker").
 - Merge the PR to publish it to the main site.
 - To add it to the game: on the model's page, tap **Copy prompt**, start a Claude Code session on
-  the game repo, and paste. Claude downloads the FBX from GitHub, so you don't have to transfer files.
+  the game repo, and paste. Claude downloads the FBX from the public site, so you don't have to transfer files.
 
 ## Local use
 

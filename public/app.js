@@ -1,5 +1,6 @@
 const REPO = "javaleer/3d-claude";
-const RAW = `https://raw.githubusercontent.com/${REPO}/main/public/models`;
+// Public production site (the GitHub repo is private, and previews need a Vercel login).
+const SITE = "https://3d-claude.vercel.app/models";
 
 const $ = (id) => document.getElementById(id);
 const gallery = $("gallery");
@@ -73,7 +74,7 @@ function showModel(m) {
 
   $("prompt").textContent =
     `Add the low-poly asset "${m.slug}" from ${REPO} to the game.\n` +
-    `FBX: ${RAW}/${m.slug}/${m.files.fbx}\n` +
+    `FBX: ${SITE}/${m.slug}/${m.files.fbx}\n` +
     `Materials: ${m.materials.map((x) => `${x.name} ${x.color}`).join(", ")}\n` +
     `Follow the asset import rules in CLAUDE.md.`;
 
