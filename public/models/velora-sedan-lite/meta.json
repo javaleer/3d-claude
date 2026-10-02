@@ -1,0 +1,57 @@
+{
+  "slug": "velora-sedan-lite",
+  "name": "Velora Sedan Lite",
+  "category": "vehicle",
+  "description": "Game-budget (under 3k tris) version of the smooth silver Velora sedan.",
+  "created": "2026-10-02",
+  "updated": "2026-10-02",
+  "tris": 2940,
+  "verts": 1656,
+  "materials": [
+    {
+      "name": "Paint",
+      "color": "#a4a6a9",
+      "tris": 1381
+    },
+    {
+      "name": "Glass",
+      "color": "#2c3034",
+      "tris": 279
+    },
+    {
+      "name": "Trim",
+      "color": "#1b1c1e",
+      "tris": 320
+    },
+    {
+      "name": "Headlight",
+      "color": "#e4eaee",
+      "tris": 24
+    },
+    {
+      "name": "Taillight",
+      "color": "#b3141c",
+      "tris": 24
+    },
+    {
+      "name": "Tire",
+      "color": "#262628",
+      "tris": 512
+    },
+    {
+      "name": "Rim",
+      "color": "#a9acb0",
+      "tris": 400
+    }
+  ],
+  "size_m": [
+    2.133,
+    5.05,
+    1.473
+  ],
+  "files": {
+    "fbx": "velora-sedan-lite.fbx",
+    "glb": "velora-sedan-lite.glb",
+    "thumb": "thumb.png"
+  }
+}
