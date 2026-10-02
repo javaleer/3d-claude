@@ -3,13 +3,14 @@
 ## Importing low-poly assets from javaleer/3d-claude
 
 Models come from the asset gallery repo `javaleer/3d-claude`. Each one lives at
-`https://3d-claude.vercel.app/models/<slug>/<slug>.fbx` (the public gallery site),
+`https://raw.githubusercontent.com/javaleer/3d-claude/main/public/models/<slug>/<slug>.fbx`
+(also mirrored on the gallery site at `https://3d-claude.vercel.app/models/<slug>/<slug>.fbx`),
 with metadata (materials, colors, size, triangle count) in `.../<slug>/meta.json`.
 
 When asked to add an asset:
 1. Download `<slug>.fbx` and `meta.json` with `curl -fsSL`. If the request only gives a slug,
-   build the URL as shown above. If the download is blocked, the cloud environment's network
-   access needs `3d-claude.vercel.app` added to its allowed domains.
+   build the URL as shown above. If one host is blocked by the network settings,
+   try the other one.
 2. Put the FBX at `Assets/Models/Props/<slug>/<slug>.fbx`. Use `Nature/`, `Buildings/`,
    `Vehicles/`, or `Characters/` instead of `Props/` based on `category` in meta.json.
 3. Don't write `.meta` files by hand; Unity generates them on import. The FBX is already Y-up,

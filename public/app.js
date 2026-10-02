@@ -1,6 +1,6 @@
 const REPO = "javaleer/3d-claude";
-// Public production site (the GitHub repo is private, and previews need a Vercel login).
-const SITE = "https://3d-claude.vercel.app/models";
+// raw GitHub is reachable from Claude Code cloud sessions on the default "Trusted" network.
+const SITE = `https://raw.githubusercontent.com/${REPO}/main/public/models`;
 
 const $ = (id) => document.getElementById(id);
 const gallery = $("gallery");
