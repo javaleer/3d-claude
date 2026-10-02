@@ -1,0 +1,57 @@
+{
+  "slug": "velora-sedan",
+  "name": "Velora Sedan",
+  "category": "vehicle",
+  "description": "Silver mid-size four-door sedan with a black grille and five-spoke wheels.",
+  "created": "2026-10-02",
+  "updated": "2026-10-02",
+  "tris": 568,
+  "verts": 328,
+  "materials": [
+    {
+      "name": "Paint",
+      "color": "#a4a6a9",
+      "tris": 124
+    },
+    {
+      "name": "Glass",
+      "color": "#2c3034",
+      "tris": 16
+    },
+    {
+      "name": "Trim",
+      "color": "#1b1c1e",
+      "tris": 60
+    },
+    {
+      "name": "Headlight",
+      "color": "#e4eaee",
+      "tris": 24
+    },
+    {
+      "name": "Taillight",
+      "color": "#b3141c",
+      "tris": 24
+    },
+    {
+      "name": "Tire",
+      "color": "#262628",
+      "tris": 176
+    },
+    {
+      "name": "Rim",
+      "color": "#a9acb0",
+      "tris": 144
+    }
+  ],
+  "size_m": [
+    2.1,
+    5.021,
+    1.48
+  ],
+  "files": {
+    "fbx": "velora-sedan.fbx",
+    "glb": "velora-sedan.glb",
+    "thumb": "thumb.png"
+  }
+}
