@@ -6,11 +6,32 @@ Vercel (`public/`) where it can be viewed, inspected per material, and downloade
 
 Typical request: *[photo]* "make this" / "make this, call it mossy-rock".
 
+## The user's words come first
+
+Everything under "Modeling rules" below is a **default**, used only where the request doesn't
+say otherwise. Whatever the user asks for in the message overrides it, including detail level,
+triangle count, colors, number of materials, size, shading, style, or which parts to include or
+skip. Expect casual, one-off, mixed instructions and follow them literally:
+
+- "use red for the body and blue for the wheels" → those exact colors, even if the photo differs.
+- "make it detailed" / "high poly" / "smooth" → raise the triangle budget to match (5,000+ is fine)
+  and use more segments, bevels, or `SMOOTH = True` as fits. "super low poly" → go below the budgets.
+- "one material" / "give the windows their own material" → do exactly that.
+- "make it 2 m tall", "chunkier", "cartoony", "add a spoiler", "no mirrors" → do it.
+- No photo, just words ("make a wooden barrel") → design it from the description.
+- Instructions apply to that request (and its follow-up edits) only. They don't become the new
+  default unless the user says "always" or "from now on". In that case, update this file.
+
+If an instruction conflicts with the photo, follow the instruction. If it's genuinely ambiguous
+(for example "make it red" on a model with five materials), pick the most likely meaning, do it,
+and say what you chose in the reply. Don't stop to ask. In the reply, list which defaults you
+changed because of the instructions (for example "4,800 tris since you asked for detailed").
+
 ## Recipe for a new model
 
 1. **Name it.** Pick a short kebab-case slug (`mossy-rock`, `street-lamp`) unless one is given.
    If `models/<slug>/` exists, ask whether to replace it or choose a new slug.
-2. **Study the image.** Before writing code, note: overall silhouette and proportions,
+2. **Study the image and the instructions.** Note anything the user asked for (it overrides the defaults below). Then, before writing code, note: overall silhouette and proportions,
    the distinct parts, the distinct flat colors (that's your material list), real-world
    size in meters, and which details are geometry versus which can be dropped.
 3. **Set up Blender** if needed: `bash scripts/setup.sh` (no-op when already installed).
@@ -32,13 +53,13 @@ Typical request: *[photo]* "make this" / "make this, call it mossy-rock".
 For **edits** ("make the roof red", "fewer polys"), change `models/<slug>/build.py`, rebuild
 with `--check`, and push to the same branch/PR.
 
-## Modeling rules (important)
+## Modeling rules (defaults, overridden by anything the user says)
 
-**As low-poly as possible while still looking like the image.**
+**By default, as low-poly as possible while still looking like the image.**
 - Match the *silhouette* first; it's what reads in-game. Spend triangles only where they change
   the outline or a clearly visible shape. Don't model detail that's smaller than ~5% of the object.
-- Budgets (triangles): small prop 50–300 · medium prop/furniture 300–800 ·
-  vehicle/large prop/character 800–2,000. Going over needs a reason; say what it was.
+- Default budgets (triangles): small prop 50–300 · medium prop/furniture 300–800 ·
+  vehicle/large prop/character 800–2,000. Going over needs a reason (such as the user asking for detail); say what it was.
 - Cylinders and cones: 6–8 sides (12 only for large round hero parts). Spheres: `ico(subdivisions=1)`
   or `sphere(segments=8, rings=6)`. Avoid `bevel` unless the chamfer is clearly visible in the image.
 - Don't build hidden geometry: no faces fully buried inside other parts, and no parts that can't be
@@ -46,7 +67,7 @@ with `--check`, and push to the same branch/PR.
 - Use `jitter()` on organic shapes (rocks, foliage, trees) so they look hand-made, not procedural.
 - Flat shading (the default). Set `SMOOTH = True` only for something that's clearly smooth in the image.
 
-**Materials: separate, and as few as possible.**
+**Materials, by default: separate, and as few as possible.**
 - One material per *distinct color/surface* in the image, and no more. Typically 2–5 per model.
   Merge near-identical shades into one. Never use textures, UVs, or vertex colors; every color is
   its own named material so it can be swapped in Unity.
