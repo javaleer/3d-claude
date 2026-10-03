@@ -1,0 +1,52 @@
+{
+  "slug": "pearl-sedan",
+  "name": "Pearl Sedan",
+  "category": "vehicle",
+  "description": "Rounded pearl-white fastback sedan with a hexagonal black grille and five-spoke wheels.",
+  "created": "2026-10-03",
+  "updated": "2026-10-03",
+  "tris": 2764,
+  "verts": 1612,
+  "materials": [
+    {
+      "name": "Paint",
+      "color": "#e7e1d8",
+      "tris": 994
+    },
+    {
+      "name": "Glass",
+      "color": "#3a3c3e",
+      "tris": 150
+    },
+    {
+      "name": "Black",
+      "color": "#262728",
+      "tris": 1108
+    },
+    {
+      "name": "Headlight",
+      "color": "#c9ced3",
+      "tris": 24
+    },
+    {
+      "name": "Taillight",
+      "color": "#a3161f",
+      "tris": 24
+    },
+    {
+      "name": "Rim",
+      "color": "#6b6c6f",
+      "tris": 464
+    }
+  ],
+  "size_m": [
+    2.042,
+    4.994,
+    1.453
+  ],
+  "files": {
+    "fbx": "pearl-sedan.fbx",
+    "glb": "pearl-sedan.glb",
+    "thumb": "thumb.png"
+  }
+}
